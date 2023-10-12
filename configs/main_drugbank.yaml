@@ -1,0 +1,37 @@
+max_length: 256
+model_type: 'roberta_cls'
+dataset: 'drugbank'
+pretrained_model_path: '../ddi/pretrained_model_path/roberta-base' #
+ddi_dict_path: './data/drugbank/DDI_dict_action_roberta.json'
+annotation: ''
+drug_name_only: False
+use_zero_shot: True
+use_few_shot: False
+shot_num: 5
+use_id : False
+drug_only_max_length: 48
+not_random : False
+checkpoint : './checkpoints/06-12/drugbank_0shot_seed2023_env0_re/checkpoint_epoch14.pt' # TODO
+resume: False
+use_gpu: True
+multi_gpu: False
+deepspeed: False
+gpuid: '0,2,4,6'
+gpu_num: 4
+eval: False
+test: True
+filemode: 'w'
+patience : 5
+num_train_epochs: 100
+max_train_steps: 0
+per_gpu_train_batch_size: 32
+gradient_accumulation_steps: 1
+eval_batch_size: 128
+log_step: 10
+lr_scheduler_type: 'constant' # constant cosine
+fp16: False
+lr: 1.0e-5
+weight_decay: 1.0e-6  # 1.0e-6 #1e-2
+epsilon: 1.0e-8
+vocab_size: 50257
+seed: 2025

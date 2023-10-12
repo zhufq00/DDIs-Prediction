@@ -1,0 +1,57 @@
+# common data setting
+max_length: 256
+dataset : 'twosides'
+pretrained_model_path: './pretrained_model_path/roberta-large' #
+info_dict_path: 'data/twosides/twosides_sents.json'
+annotation: 'rl0_twosides_large'
+initialize_checkpoint: './checkpoints/06-22/twosides_finetune-roberta-large/checkpoint_epoch10.pt'
+policy_resume: False
+policy_checkpoint: './checkpoints/05-27/ppo_zero_shot_twosides_2/checkpoint_epoch2000.pt'
+
+use_zero_shot : False
+num_labels : 200
+
+# ppo setting
+# num_process: 1
+use_gae: True
+gamma: 0.99
+gae_lambda: 0.95
+ppo_epoch: 1
+num_mini_batch: 4
+clip_param: 0.1
+value_loss_coef: 0.5
+entropy_coef: 0.01
+max_grad_norm: 0.5
+use_clipped_value_loss: True
+
+# train eval setting
+multi_gpu: False
+eval: False
+# random_act: True
+eval_before_train: False
+eval_vanilla_before_train: False
+eval_step: 20
+use_stop: False
+
+use_gpu: True
+deepspeed: False
+gpuid: '0,1,2,3,4,5,6,7'
+gpu_num: 8
+test: True
+filemode: 'w'
+patience : 5
+num_train_epochs: 100
+eval_actions_batch_size: 512 # 4096
+train_actions_batch_size: 32
+eval_vanilla_batch_size: 512
+per_gpu_train_batch_size: 1 # fake
+gradient_accumulation_steps: 1 
+
+
+log_step: 1lr_scheduler_type: 'constant' # constant cosine
+
+fp16: False
+lr: 1.0e-5
+weight_decay: 1.0e-6  # 1.0e-6 #1e-2
+epsilon: 1.0e-8
+seed: 2023
