@@ -15,7 +15,7 @@ To work with the DrugBank dataset and train models, follow these instructions:
 
 ### Training Information-Selector
 
-- Adjust the configuration in `configs/ppo_drugbank.yaml`. Ensure you update the `initialize_checkpoint` and `policy_checkpoint` to the trained DDI-Predictor weights.
+- Adjust the configuration in `configs/ppo_drugbank.yaml`. Ensure you update the `initialize_checkpoint` and `policy_checkpoint` to the trained DDI-Predictor checkpoint path.
 - Execute the training script `drugbank/train_ppo_drugbank.py` by running:
   ```
   python drugbank/train_ppo_drugbank.py
